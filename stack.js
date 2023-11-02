@@ -58,13 +58,23 @@ class Stack {
 
   peek() {
 
-    
+    if(!this.first){
+      throw new Error("No items left in stack")
+    }
+
+    return this.first.val
 
   }
 
   /** isEmpty(): return true if the stack is empty, otherwise false */
 
   isEmpty() {
+
+    if(!this.first){
+      return true
+    }
+
+    return false
 
   }
 }

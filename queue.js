@@ -65,6 +65,10 @@ class Queue {
 
   peek() {
 
+    if(!this.first){
+      throw new Error("No Items left In Queue")
+    }
+
     return this.first.val
 
   }
