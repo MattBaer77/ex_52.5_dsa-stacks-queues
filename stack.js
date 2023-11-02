@@ -21,6 +21,19 @@ class Stack {
 
   push(val) {
 
+    const newNode = new Node(val)
+
+    if(!this.last){
+
+      this.last = newNode
+
+    }
+
+    newNode.next = this.first
+
+    this.first = newNode
+    this.size ++
+
   }
 
   /** pop(): remove the node from the top of the stack
@@ -28,11 +41,24 @@ class Stack {
 
   pop() {
 
+    if(!this.first){
+      throw new Error("No items left in stack")
+    }
+
+    const poppedValue = this.first.val
+
+    this.first = this.first.next
+    this.size --
+
+    return poppedValue
+
   }
 
   /** peek(): return the value of the first node in the stack. */
 
   peek() {
+
+    
 
   }
 
