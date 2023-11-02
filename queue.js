@@ -21,12 +21,43 @@ class Queue {
 
   enqueue(val) {
 
+    const newNode = new Node(val)
+
+    if(!this.first){
+      this.first = newNode
+    }
+
+    if(this.first && this.first == this.last){
+      this.first.next = newNode
+    }
+
+    if(this.last){
+      this.last.next = newNode
+    }
+    
+    this.last = newNode
+    this.size ++
+
+    // console.log(this)
+
   }
 
   /** dequeue(): remove the node from the start of the queue
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
+
+    if(!this.first){
+      throw new Error("No Items left In Queue")
+    }
+
+    const nextInQueueValue = this.first.val
+
+    this.first = this.first.next
+
+    this.size --
+
+    return nextInQueueValue
 
   }
 
